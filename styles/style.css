@@ -9,18 +9,16 @@ html {
 }
 
 .page {
-  inline-size: 1200px;
-  block-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
-
-  /*  Ниже мои стили */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  inline-size: 1200px;
+  block-size: 100%;
 }
 
 h1,
@@ -55,12 +53,14 @@ ol {
   background-color: #d9d9d9;
 }
 
+/* Класс для скрытия дефолтных импутов */
+
 .visually-hidden {
-  /* position: absolute; */
-  inline-size: 1px;
-  block-size: 1px;
+  position: absolute;
   overflow: hidden;
   clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
   clip-path: inset(50%);
   white-space: nowrap;
 }
@@ -71,21 +71,27 @@ ol {
   display: grid;
   grid-template-areas: "result details";
   align-items: end;
-  inline-size: 1140px;
   column-gap: 30px;
+  inline-size: 1140px;
 }
+
+/* Блок с видео и формами ------------------------------ */
 
 .result {
   grid-area: result;
   max-width: 711px;
 }
 
+/* Контейнер для видео */
+
 .result__video-container {
+  position: relative;
   width: 711px;
   height: 386px;
   margin-bottom: 16px;
-  position: relative;
 }
+
+/* Видео */
 
 .result__video {
   width: 100%;
@@ -96,51 +102,64 @@ ol {
 .content__details {
   grid-area: details;
   width: 100%;
-  height: 100%;
   min-width: 399px;
+  height: 100%;
 }
+
+/* Контейнер для всех форм */
 
 .search-form {
   display: flex;
-  align-items: start;
   justify-content: space-between;
+  align-items: start;
   gap: 40px;
 }
 
 .search-form__fieldset {
-  border: none;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  border: none;
 }
 
 .search-form__fieldset-title {
+  font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 400;
   font-size: 18px;
-  font-family: "Fira Sans Condensed", sans-serif;
 }
 
 .search-form__label {
   display: flex;
-  width: fit-content;
   align-items: center;
+  width: fit-content;
   cursor: pointer;
 }
 
 .search-form__textfield {
-  font-family: "Fira Sans Condensed", sans-serif;
-  appearance: none;
+  padding: 2.5px 0;
+  min-width: 225px;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
-  background-color: transparent;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   outline: none;
-  min-width: 225px;
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 400;
   font-size: 18px;
+  background-color: transparent;
+  appearance: none;
 }
 
+.search-form__textfield::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-form__textfield:active {
+	border: 1px solid #fff;
+}
+
+
+/* Попытка сделать  outline только в focus-visible, которая не увенчалась успехом*/
 .search-form__textfield:focus,
 .search-form__textfield:focus-visible,
 .search-form__label,
@@ -155,26 +174,25 @@ ol {
 
 .search-form__checkbox-list {
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 15px;
 }
 
 .search-form__pseudo-checkbox {
-  border: 1px solid #fff;
-  width: 19px;
-  height: 19px;
-  /* position: relative; */
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
 }
 
 .search-form__pseudo-checkbox::after {
-  display: none;
   content: "";
-  background-color: #fff;
+  display: none;
   width: 15px;
   height: 15px;
+  background-color: #fff;
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
@@ -183,15 +201,15 @@ ol {
 
 .search-form__label-text {
   margin-left: 5px;
+  color: #fff;
   font-weight: 400;
   font-size: 18px;
-  color: #fff;
 }
 
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
-  text-underline-offset: 1px;
   text-decoration-skip-ink: none;
+  text-underline-offset: 1px;
 }
 
 .search-form__checkbox:focus-visible {
@@ -199,16 +217,36 @@ ol {
 }
 
 .search-form__label:has(.search-form__checkbox:focus-visible) {
-  outline: 1px solid #ffffff; /* добавляем обводку лейблу */
+  outline: 1px solid #ffffff; /* добавляем обводку  */
   outline-offset: 1px;
 }
 
+/* Блок с карточками ------------------------------------- */
+
+.title {
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 94%;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__card-link {
+  color: #fff;
+  text-decoration: none;
+}
+
 .content__list-container {
-  block-size: 298px;
-  overflow-y: auto;
+  position: relative;
   margin-top: 26px;
   padding-right: 3px;
-  position: relative;
+  overflow-y: auto;
+  block-size: 298px;
 }
 
 .content__list {
@@ -220,8 +258,8 @@ ol {
 
 .content__video-card {
   display: flex;
-  align-items: flex-start;
   justify-content: space-around;
+  align-items: flex-start;
 }
 
 .content__video-card:active {
@@ -250,76 +288,60 @@ ol {
 }
 
 .content__video-card-description-container {
-  flex-grow: 1;
-  max-width: 196px;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 6px;
-}
-
-.content__video-card-description {
-  font-family: "Fira Sans Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 90%;
-  color: #fff;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.title {
-  font-weight: 700;
-  font-size: 75px;
-  line-height: 94%;
-  text-transform: uppercase;
-  color: #fff;
-  font-family: "Oswald", sans-serif;
-}
-
-.content__accent {
-  color: #545050;
-}
-
-.content__card-link {
-  text-decoration: none;
-  color: #fff;
+  max-width: 196px;
 }
 
 .content__video-card-title {
+  overflow: hidden;
+  color: #fff;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   font-size: 30px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #fff;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+.content__video-card-description {
+  display: -webkit-box; /* Используется для многострочного обрезания текста (Для современных браузеров можно убрать)*/
+  overflow: hidden;
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 90%;
+  -webkit-line-clamp: 4; /* Ограничение текста до 4 строк */
+  line-clamp: 4; /* Ограничение текста до 4 строк */
+  -webkit-box-orient: vertical; /* Установка вертикальной ориентации контейнера (Для современных браузеров можно убрать)*/
+}
+
+/* Кнопки */
+
 .button {
+  height: 34px;
   border: 1px solid #fff;
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
   font-size: 18px;
   text-align: center;
-  color: #fff;
-  font-family: "Fira Sans Condensed", sans-serif;
   background-color: transparent;
-  height: 34px;
   cursor: pointer;
 }
 
 .search-form__submit-button {
-  width: 194px;
   align-self: flex-end;
+  width: 194px;
 }
 
 .more-button {
-  margin-top: 30px;
   width: 100%;
+  margin-top: 30px;
 }
 
 .button:hover {
@@ -339,9 +361,3 @@ ol {
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
-
-
-
-/* .content__list-item {
-	max-width: 390px;
-} */
