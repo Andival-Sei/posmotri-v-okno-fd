@@ -79,7 +79,6 @@ ol {
 
 .result {
   grid-area: result;
-  max-width: 711px;
 }
 
 /* Контейнер для видео */
@@ -97,6 +96,7 @@ ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .content__details {
@@ -155,9 +155,8 @@ ol {
 }
 
 .search-form__textfield:active {
-	border: 1px solid #fff;
+  border: 1px solid #fff;
 }
-
 
 /* Попытка сделать  outline только в focus-visible, которая не увенчалась успехом*/
 .search-form__textfield:focus,
@@ -236,11 +235,6 @@ ol {
   color: #545050;
 }
 
-.content__card-link {
-  color: #fff;
-  text-decoration: none;
-}
-
 .content__list-container {
   position: relative;
   margin-top: 26px;
@@ -256,28 +250,35 @@ ol {
   max-width: 390px;
 }
 
-.content__video-card {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+.content__card-link {
+  color: #fff;
+  text-decoration: none;
+  display: block;
 }
 
-.content__video-card:active {
+.content__card-link_current,
+.content__card-link:active {
   background-color: #545050;
 }
 
-.content__video-card:hover {
+.content__card-link:hover {
   text-decoration: underline;
   text-decoration-skip-ink: none;
   text-underline-offset: 1px;
 }
 
-.content__video-card:focus {
+.content__card-link:focus {
   outline: none;
 }
 
-.content__video-card:focus-visible {
+.content__card-link:focus-visible {
   outline: 1px solid #fff;
+}
+
+.content__video-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .content__video-card-thumbnail {
@@ -323,7 +324,7 @@ ol {
 /* Кнопки */
 
 .button {
-  height: 34px;
+  min-height: 34px; /* Изменено с height для добавления гибкости  */
   border: 1px solid #fff;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
