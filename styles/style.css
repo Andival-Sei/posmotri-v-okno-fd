@@ -55,6 +55,16 @@ ol {
   background-color: #d9d9d9;
 }
 
+.visually-hidden {
+  /* position: absolute; */
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* Мои стили ниже */
 
 .content {
@@ -165,9 +175,6 @@ ol {
   background-color: #fff;
   width: 15px;
   height: 15px;
-  /* position: absolute; */
-  /* inset: 0; */
-  /* margin: auto; */
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
@@ -333,15 +340,7 @@ ol {
   outline-offset: 1px;
 }
 
-.visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
+
 
 /* .content__list-item {
 	max-width: 390px;
