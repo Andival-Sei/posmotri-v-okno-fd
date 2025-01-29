@@ -16,6 +16,11 @@ html {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+
+	/*  Ниже мои стили */
+	display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -51,12 +56,6 @@ ol {
 }
 
 /* Мои стили ниже */
-
-.page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .content {
   display: grid;
